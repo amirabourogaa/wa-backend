@@ -10,12 +10,14 @@ export const createProduct = async (req, res) => {
       description,
       reviews,
       newProduct,
+      imgLink
     } = req.body;
     const imgUrl = req.file.filename;
     const product = await Product.create({
       productName,
       price,
       imgUrl,
+      imgLink,
       category,
       description,
       reviews,
@@ -51,7 +53,7 @@ export const getProductById = async (req, res) => {
 
 export const updateProduct = async (req, res) => {
   try {
-    const { productName, price, category, description, discount, newProduct } = req.body;
+    const { productName, price, category, description, discount, newProduct,imgLink } = req.body;
     const imgUrl = req.file.filename; // assuming you also allow updating the image
 
     const updatedProduct = await Product.findByIdAndUpdate(
@@ -59,6 +61,7 @@ export const updateProduct = async (req, res) => {
       {
         productName,
         price,
+        imgLink,
         category,
         description,
         discount,
