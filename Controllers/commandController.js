@@ -1,4 +1,4 @@
-import Command from "../models/commandModel.js";
+import Command from "../Models/commandModel.js";
 
 export const createCommand = async (req, res) => {
   try {
